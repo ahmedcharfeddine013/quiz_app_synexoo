@@ -76,37 +76,44 @@ export default function Home() {
 
   return (
     <main className="flex items-center justify-center w-full h-screen">
-      <section className="p-6 bg-primary flex items-center justify-center rounded-xl flex-col gap-4 text-gray-100">
-        <h1 className="text-4xl font-bold">Quizz App</h1>
-        <h2 className="text-lg ">
-          Score : <span className="font-bold text-2xl">{score}</span>
+      <section className="p-6 bg-secondary flex items-center justify-center rounded-xl flex-col gap-4 text-gray-100">
+        <h1 className="text-6xl font-bold text-primary">Quizz App</h1>
+        <h2 className="text-2xl ">
+          Score :{" "}
+          <span className="font-bold text-4xl text-primary">{score}</span>
         </h2>
 
         {showResults ? (
           /* 4. Final Results */
           <div className="flex flex-col items-center justify-center gap-2">
             <h1 className="font-bold tracking-wider">Final Results</h1>
-            <h2>
-              {score} out of {questions.length} correct - (
+            <h2 className="text-2xl">
+              <span className="text-green-600">{score}{" "}</span>
+              out of {questions.length} correct - (
               {(score / questions.length) * 100}%)
             </h2>
-            <button onClick={() => restartGame()}>Restart game</button>
+            <button onClick={() => restartGame()} className="text-red-400">
+              Restart game
+            </button>
           </div>
         ) : (
           /* 5. Question Card  */
-          <div>
+          <div className="flex items-start justify-center flex-col gap-3">
             {/* Current Question  */}
-            <h2 className="text-2xl font-semibold">
+            <h2 className="text-xl font-semibold">
               Question: {currentQuestion + 1} out of {questions.length}
             </h2>
-            <h3 className="question-text">{questions[currentQuestion].text}</h3>
+            <h3 className="text-2xl font-semibold tracking-wide">
+              {questions[currentQuestion].text}
+            </h3>
 
             {/* List of possible answers  */}
-            <ul>
+            <ul className="flex text-lg flex-col gap-2">
               {questions[currentQuestion].options.map((option) => {
                 return (
                   <li
                     key={option.id}
+                    className="cursor-pointer hover:text-green-600 transition-all duration-100 ease-in"
                     onClick={() => optionClicked(option.isCorrect)}
                   >
                     {option.text}
