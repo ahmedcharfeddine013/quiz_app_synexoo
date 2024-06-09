@@ -76,14 +76,16 @@ export default function Home() {
 
   return (
     <main className="flex items-center justify-center w-full h-screen">
-      <section className="p-6">
-        <h1>Quizz App</h1>
-        <h2>Score : {score}</h2>
+      <section className="p-6 bg-primary flex items-center justify-center rounded-xl flex-col gap-4 text-gray-100">
+        <h1 className="text-4xl font-bold">Quizz App</h1>
+        <h2 className="text-lg ">
+          Score : <span className="font-bold text-2xl">{score}</span>
+        </h2>
 
         {showResults ? (
           /* 4. Final Results */
-          <div className="final-results">
-            <h1>Final Results</h1>
+          <div className="flex flex-col items-center justify-center gap-2">
+            <h1 className="font-bold tracking-wider">Final Results</h1>
             <h2>
               {score} out of {questions.length} correct - (
               {(score / questions.length) * 100}%)
@@ -92,9 +94,9 @@ export default function Home() {
           </div>
         ) : (
           /* 5. Question Card  */
-          <div className="question-card">
+          <div>
             {/* Current Question  */}
-            <h2>
+            <h2 className="text-2xl font-semibold">
               Question: {currentQuestion + 1} out of {questions.length}
             </h2>
             <h3 className="question-text">{questions[currentQuestion].text}</h3>
