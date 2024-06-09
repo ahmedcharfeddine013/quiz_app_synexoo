@@ -88,7 +88,7 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center gap-2">
             <h1 className="font-bold tracking-wider">Final Results</h1>
             <h2 className="text-2xl">
-              <span className="text-green-600">{score}{" "}</span>
+              <span className="text-green-600">{score} </span>
               out of {questions.length} correct - (
               {(score / questions.length) * 100}%)
             </h2>
