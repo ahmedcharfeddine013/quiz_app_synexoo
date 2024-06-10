@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 
+// easy implements
+
 export default function Home() {
   const [showResults, setShowResults] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -84,7 +86,7 @@ export default function Home() {
         </h2>
 
         {showResults ? (
-          /* 4. Final Results */
+          /* 4. Final Result */
           <div className="flex flex-col items-center justify-center gap-2">
             <h1 className="font-bold tracking-wider">Final Results</h1>
             <h2 className="text-2xl">
